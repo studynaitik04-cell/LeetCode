@@ -6,7 +6,7 @@ int romanToInt(char* s) {
         int current;
         int next;
 
-        
+        // Value of current symbol
         switch (s[i]) {
             case 'I': current = 1; break;
             case 'V': current = 5; break;
@@ -17,22 +17,19 @@ int romanToInt(char* s) {
             case 'M': current = 1000; break;
         }
 
-        
-        if (s[i + 1] != '\0') {
-            switch (s[i + 1]) {
-                case 'I': next = 1; break;
-                case 'V': next = 5; break;
-                case 'X': next = 10; break;
-                case 'L': next = 50; break;
-                case 'C': next = 100; break;
-                case 'D': next = 500; break;
-                case 'M': next = 1000; break;
-            }
-        }
-        else {
-            next = 0;
+        // Value of next symbol
+        switch (s[i + 1]) {
+            case 'I': next = 1; break;
+            case 'V': next = 5; break;
+            case 'X': next = 10; break;
+            case 'L': next = 50; break;
+            case 'C': next = 100; break;
+            case 'D': next = 500; break;
+            case 'M': next = 1000; break;
+            case '\0': next = 0; break;
         }
 
+        // Subtract if current is smaller than next
         if (current < next)
             total -= current;
         else
